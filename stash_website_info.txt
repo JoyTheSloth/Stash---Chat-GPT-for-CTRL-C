@@ -1,0 +1,83 @@
+================================================================================
+                                 STASH
+                      Your ChatGPT for Ctrl + C
+================================================================================
+
+OVERVIEW
+--------
+Stash is a modern, developer-centric, AI-powered memory engine and intelligent 
+clipboard vault. Built for developers, system administrators, and power users, 
+Stash automatically captures, categorizes, titles, and indexes copied text, code 
+snippets, API keys, database connection strings, and system commands.
+
+Unlike traditional clipboard managers that dump raw strings into a unorganized 
+chronological list, Stash turns your temporary clipboard into a structured, 
+semantically searchable local knowledge base.
+
+--------------------------------------------------------------------------------
+KEY FEATURES
+--------------------------------------------------------------------------------
+
+1. SEMANTIC AI SEARCH ("ASK STASH")
+   - Query your copied history using natural language.
+   - Search by concept or intent (e.g., "where is my OpenAI key?" or "database connection string") 
+     even if the exact query phrase was never typed in the clip content.
+
+2. SMART AI TITLING & AUTOMATIC CATEGORIZATION
+   - Replaces unreadable character dumps (JWT tokens, hashes, complex regex) 
+     with clear, human-readable titles.
+   - Automatically organizes clips into smart categories:
+     • API Keys & Credentials
+     • Code Snippets (JavaScript, Python, Rust, etc.)
+     • Database URIs & Connection Strings
+     • Terminal Commands & Shell Scripts
+     • URLs & Web Links
+     • General Text & Notes
+
+3. STASH IT (MULTI-SELECT & MERGE)
+   - Enable multi-select mode directly from the sidebar.
+   - Select multiple clip cards across any view and merge them into a single 
+     formatted clipboard item.
+   - Customize merge separators (Newlines, Commas, or Spaces).
+
+4. STASH PAD (LOCAL SCRATCHPAD)
+   - A dedicated live scratchpad for quick drafting and pasting.
+   - Automatically parses pasted content, categorizes items (e.g., API keys), 
+     and saves them directly into your database.
+
+5. FLEXIBLE FEED VIEW MODES
+   - Switch fluidly between 5 distinct rendering modes:
+     • Detailed List View
+     • Compact List View
+     • Detailed Grid View
+     • 2x2 Grid View
+     • 4x4 Compact Grid View
+   - Responsive layouts that automatically adapt as the application window resizes.
+
+6. LOCAL-FIRST VAULT & RETENTION CONTROLS
+   - 100% Offline & Private: All data remains local on your machine.
+   - Configurable Retention Policy: Keep clips for 3 Days, 7 Days, or Keep Forever.
+   - Secure Vault Data Export options (TXT and PDF formats).
+
+--------------------------------------------------------------------------------
+KEYBOARD SHORTCUTS & NAVIGATION
+--------------------------------------------------------------------------------
+
+• Alt + Space  : Global Hotkey — Summon or dismiss the Stash window from anywhere on your OS.
+• Ctrl + C     : Auto-Capture — Copies text/code and automatically categorizes it in Stash.
+• Sidebar Nav  :
+  - Top Navigation: Home, Ask Stash, Library, Stash Pad, Stash It Mode.
+  - Bottom Dock   : Data & Vault, Settings, What's Stash? (Guide), About.
+
+--------------------------------------------------------------------------------
+CREATOR & SUPPORT INFORMATION
+--------------------------------------------------------------------------------
+
+• Creator & Lead Architect : Joydeep Das
+• GitHub Profile          : https://github.com/joydeep-das
+• LinkedIn Profile        : https://www.linkedin.com/in/joydeep-das-78123522a
+• Contact Email           : joy.thesloth@gmail.com
+
+================================================================================
+                         Stash Memory Engine v1.0.0
+================================================================================
