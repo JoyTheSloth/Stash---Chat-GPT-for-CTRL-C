@@ -303,9 +303,6 @@ export default function App() {
             </motion.div>
             <motion.div className="hero-proof" variants={fadeInUp}>
               <span className="hero-quote">“Built for devs who live in their terminal.”</span>
-              <span className="hero-quote-sub" style={{ display: 'block', marginTop: '6px', color: '#8e7fa9', fontSize: '13px', fontFamily: '"DM Mono", monospace' }}>
-                Created with love &amp; caffeine by <strong>Joydeep Das</strong>
-              </span>
             </motion.div>
           </motion.div>
 
@@ -314,6 +311,13 @@ export default function App() {
             <AppPreview />
           </div>
         </section>
+
+        {/* CREATED WITH LOVE & CAFFEINE (CENTERED ABOVE TICKER) */}
+        <div style={{ textAlign: 'center', margin: '0 0 24px 0', position: 'relative', zIndex: 2 }}>
+          <span style={{ color: '#a695c7', fontSize: '13.5px', fontFamily: '"DM Mono", monospace', letterSpacing: '0.2px' }}>
+            Created with love &amp; caffeine by <strong style={{ color: '#f0e6ff' }}>Joydeep Das</strong>
+          </span>
+        </div>
 
         {/* TICKER */}
         <section className="ticker" aria-label="Key features marquee">
