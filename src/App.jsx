@@ -10,17 +10,21 @@ import st3 from '../assets/st3.png';
 import st4 from '../assets/st4.png';
 import st5 from '../assets/st5.png';
 import frame1 from '../assets/Frame 1.png';
+import imagePng from '../assets/image.png';
 import LineSidebar from './LineSidebar.jsx';
+
+const DOWNLOAD_LINK = "https://www.mediafire.com/file/e06u2jw15gqwau6/Stash_Setup_1.0.0.exe/file";
+const GITHUB_REPO_LINK = "https://github.com/JoyTheSloth/Stash-/tree/main";
 
 const viewModesData = [
   {
     id: 'list',
     title: 'List Mode',
-    badge: 'Win + V Replacement',
-    tag: 'Detailed & Compact',
+    badge: 'Detailed & Compact',
+    tag: 'Line-by-Line Feed',
     icon: '☰',
-    img: st1,
-    desc: 'Standard Windows (Win + V) locks you into a cluttered, narrow single column. Stash List Mode presents a clean, titled line-by-line feed for reading code, commands, and notes with zero clutter.'
+    img: st2,
+    desc: 'Clean, line-by-line feed for reading code, commands, and notes with zero clutter.'
   },
   {
     id: 'grid2x2',
@@ -28,8 +32,8 @@ const viewModesData = [
     badge: 'Balanced Overview',
     tag: '2x2 Grid Layout',
     icon: '⊞',
-    img: st2,
-    desc: 'A spacious 2x2 layout balancing deep clip previews with rapid visual scanning across your recent memory feed.'
+    img: imagePng,
+    desc: 'Spacious 2x2 grid balancing deep clip previews with rapid visual scanning.'
   },
   {
     id: 'grid3x3',
@@ -38,7 +42,7 @@ const viewModesData = [
     tag: '3x3 Gallery View',
     icon: '❖',
     img: st3,
-    desc: 'High-density 3x3 grid built to scan dozens of copied items, images, and keys simultaneously without scrolling forever.'
+    desc: 'High-density 3x3 grid to scan dozens of copied items without endless scrolling.'
   }
 ];
 
@@ -80,7 +84,7 @@ function Brand() {
 function AppPreview() {
   return (
     <div className="hero-dual-stage">
-      {/* CALLOUT BADGE 1: Sarcastic Win+V Pill */}
+      {/* CALLOUT BADGE 1: Alt + V Hotkey Pill */}
       <motion.div 
         className="hero-callout-pill pill-top neo-brutal"
         initial={{ opacity: 0, scale: 0.8, y: -10, rotate: -5 }}
@@ -92,10 +96,10 @@ function AppPreview() {
         }}
         whileHover={{ scale: 1.08, rotate: 0, y: -4 }}
       >
-        <span className="pill-badge pill-pink">UPGRADE TIME</span>
+        <span className="pill-badge pill-pink">HOTKEY RECALL</span>
         <div className="pill-text">
-          <strong>Win + V is ancient history 📜</strong>
-          <small>Scrolling 800 clips isn't a skill</small>
+          <strong>Press Alt + V anytime ⚡</strong>
+          <small>Replaces Win + V with instant search</small>
         </div>
         <svg className="callout-arrow arrow-down" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M7 7l10 10M17 7v10H7" />
@@ -132,7 +136,7 @@ function AppPreview() {
         />
       </motion.div>
 
-      {/* CALLOUT BADGE 2: Sarcastic Stash Pill */}
+      {/* CALLOUT BADGE 2: Local & AI Mode Pill */}
       <motion.div 
         className="hero-callout-pill pill-bottom neo-brutal"
         initial={{ opacity: 0, scale: 0.8, y: 10, rotate: 4 }}
@@ -148,10 +152,10 @@ function AppPreview() {
           <path d="M17 17L7 7M7 17V7h10" />
         </svg>
         <div className="pill-text">
-          <strong>Stash it? Obviously ⚡</strong>
-          <small>Stop re-copying the same token</small>
+          <strong>Local Mode &amp; AI Mode 🧠</strong>
+          <small>Toggle instant local or smart AI recall</small>
         </div>
-        <span className="pill-badge pill-lavender">BRAIN UNLOCKED</span>
+        <span className="pill-badge pill-lavender">DUAL ENGINE</span>
       </motion.div>
     </div>
   );
@@ -195,8 +199,23 @@ export default function App() {
         
         <div className="nav-right-actions">
           <motion.a 
+            className="nav-github-link" 
+            href={GITHUB_REPO_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="View GitHub Repository"
+            aria-label="GitHub Repository"
+            whileHover={{ scale: 1.08, translateY: -2 }}
+            whileTap={{ scale: 0.94 }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </motion.a>
+
+          <motion.a 
             className="nav-cta" 
-            href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9jeXV4NGtteHBhd29ndmZtYnVic3dldnd3bTUwM3psNWx3ZHh5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vNTIkYpoAUb22FhsVr/giphy.gif"
+            href={DOWNLOAD_LINK}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04, translateY: -2 }}
@@ -229,8 +248,9 @@ export default function App() {
               <a href="#features" onClick={() => setMobileMenuOpen(false)}>Features</a>
               <a href="#workflow" onClick={() => setMobileMenuOpen(false)}>Workflow</a>
               <a href="#privacy" onClick={() => setMobileMenuOpen(false)}>Privacy</a>
+              <a href={GITHUB_REPO_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>GitHub Repository ↗</a>
               <a 
-                href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9jeXV4NGtteHBhd29ndmZtYnVic3dldnd3bTUwM3psNWx3ZHh5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vNTIkYpoAUb22FhsVr/giphy.gif" 
+                href={DOWNLOAD_LINK} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="mobile-drawer-cta" 
@@ -259,12 +279,12 @@ export default function App() {
               Your ChatGPT<br />for <em>Ctrl + C.</em>
             </motion.h1>
             <motion.p className="hero-text" variants={fadeInUp}>
-              Stash turns every copied thought, command, key, and code snippet into a private, searchable memory vault — right on your machine.
+              Stash turns every copied thought, command, key, and code snippet into a private, searchable memory vault — right on your machine with both <b>Local Mode</b> and <b>AI Mode</b>.
             </motion.p>
             <motion.div className="hero-actions" variants={fadeInUp}>
               <motion.a 
                 className="button primary" 
-                href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9jeXV4NGtteHBhd29ndmZtYnVic3dldnd3bTUwM3psNWx3ZHh5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vNTIkYpoAUb22FhsVr/giphy.gif"
+                href={DOWNLOAD_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, translateY: -3 }}
@@ -283,6 +303,9 @@ export default function App() {
             </motion.div>
             <motion.div className="hero-proof" variants={fadeInUp}>
               <span className="hero-quote">“Built for devs who live in their terminal.”</span>
+              <span className="hero-quote-sub" style={{ display: 'block', marginTop: '6px', color: '#8e7fa9', fontSize: '13px', fontFamily: '"DM Mono", monospace' }}>
+                Created with love &amp; caffeine by <strong>Joydeep Das</strong>
+              </span>
             </motion.div>
           </motion.div>
 
@@ -296,24 +319,28 @@ export default function App() {
         <section className="ticker" aria-label="Key features marquee">
           <div className="ticker-track">
             {/* First Set */}
+            <span>ALT + V GLOBAL HOTKEY</span><i>✦</i>
+            <span>LOCAL MODE &amp; AI MODE</span><i>✦</i>
+            <span>AI PDF &amp; TXT EXPORT</span><i>✦</i>
+            <span>OPENAI · GEMINI · GROQ · MISTRAL</span><i>✦</i>
             <span>PRIVATE BY DEFAULT</span><i>✦</i>
             <span>SEMANTIC SEARCH</span><i>✦</i>
             <span>ZERO CLOUD SYNC</span><i>✦</i>
             <span>LOCAL SQLITE VAULT</span><i>✦</i>
             <span>NO TELEMETRY</span><i>✦</i>
             <span>INSTANT RECALL</span><i>✦</i>
-            <span>MULTI-VIEW MODES</span><i>✦</i>
-            <span>SMART STASHING</span><i>✦</i>
 
             {/* Duplicate Set for Seamless Loop */}
+            <span>ALT + V GLOBAL HOTKEY</span><i>✦</i>
+            <span>LOCAL MODE &amp; AI MODE</span><i>✦</i>
+            <span>AI PDF &amp; TXT EXPORT</span><i>✦</i>
+            <span>OPENAI · GEMINI · GROQ · MISTRAL</span><i>✦</i>
             <span>PRIVATE BY DEFAULT</span><i>✦</i>
             <span>SEMANTIC SEARCH</span><i>✦</i>
             <span>ZERO CLOUD SYNC</span><i>✦</i>
             <span>LOCAL SQLITE VAULT</span><i>✦</i>
             <span>NO TELEMETRY</span><i>✦</i>
             <span>INSTANT RECALL</span><i>✦</i>
-            <span>MULTI-VIEW MODES</span><i>✦</i>
-            <span>SMART STASHING</span><i>✦</i>
           </div>
         </section>
 
@@ -407,12 +434,12 @@ export default function App() {
                 <span className="stash-card-badge">✦ STASH PAD</span>
                 <h3>Universal Auto-Categorizing Scratchpad</h3>
                 <p>
-                  Copying content in a rush and worried about losing it? Drop any text, code, URLs, credentials, or notes into <b>Stash Pad</b>. After 1–2 hours, Stash automatically recognizes the content type, categorizes it, and archives it into your permanent Library — organized neatly by type so you can find anything later.
+                  Drop text, code, URLs, or notes into <b>Stash Pad</b>. Stash auto-categorizes and archives them into your permanent library after 1–2 hours.
                 </p>
                 <div className="stash-feature-tags">
                   <span className="stash-tag">⏱ 1-2h Auto Archive</span>
-                  <span className="stash-tag">🏷 Universal Auto-Categorization</span>
-                  <span className="stash-tag">🧠 Smart Type Recognition</span>
+                  <span className="stash-tag">🏷 Auto-Categorization</span>
+                  <span className="stash-tag">🧠 Smart Recognition</span>
                 </div>
               </div>
               <div className="stash-card-image-frame">
@@ -426,7 +453,7 @@ export default function App() {
                 <span className="stash-card-badge">⚡ STASH IT</span>
                 <h3>Multi-Clip Batch Paste</h3>
                 <p>
-                  In standard Windows, you are forced to paste items one by one. With <b>Stash It</b>, select multiple copied clips from your memory feed simultaneously and paste them all together in a single keystroke directly into your IDE, terminal, or document.
+                  Select multiple copied clips from your memory feed simultaneously and paste them all together in a single keystroke directly into your IDE or terminal.
                 </p>
                 <div className="stash-feature-tags">
                   <span className="stash-tag">⊞ Multi-Select</span>
@@ -460,21 +487,21 @@ export default function App() {
               <span className="proof-number">01</span>
               <div className="proof-icon">⌂</div>
               <h3>100% local &amp; private</h3>
-              <p>Your clips stay on your machine — no accounts, cloud sync, or unnecessary data collection.</p>
+              <p>Your clips stay 100% on your machine — zero cloud sync, accounts, or telemetry.</p>
             </motion.article>
 
             <motion.article variants={fadeInUp} whileHover={{ y: -8, scale: 1.01 }}>
               <span className="proof-number">02</span>
               <div className="proof-icon">✦</div>
-              <h3>Search the way you think</h3>
-              <p>Ask in natural language and find the command, key, note, or snippet you remember.</p>
+              <h3>Local Mode &amp; AI Mode</h3>
+              <p>Switch instantly between lightning-fast Local Mode and smart AI natural language recall.</p>
             </motion.article>
 
             <motion.article variants={fadeInUp} whileHover={{ y: -8, scale: 1.01 }}>
               <span className="proof-number">03</span>
               <div className="proof-icon">⌘</div>
-              <h3>Organized automatically</h3>
-              <p>Stash recognizes code, credentials, URLs, and notes, then gives each clip a useful title.</p>
+              <h3>Global Alt + V Hotkey</h3>
+              <p>Summon Stash anywhere on Windows with Alt + V to inspect, search, and paste clips instantly.</p>
             </motion.article>
           </motion.div>
         </motion.section>
@@ -492,24 +519,24 @@ export default function App() {
             <p className="eyebrow"><span className="pulse" /> Built offline. Configured for control.</p>
             <h2>Power features for<br />your daily workflow.</h2>
             <p className="section-quote centered-quote">
-              “Everything runs 100% locally on your machine with total control over memory retention, offline AI search, and seamless exports.”
+              “100% local operation with full control over memory retention, search engines, and exports.”
             </p>
           </motion.div>
 
           <motion.div className="feature-grid" variants={staggerContainer}>
-            {/* CARD 1: ASK STASH */}
+            {/* CARD 1: LOCAL MODE & AI MODE */}
             <motion.article className="feature-card large" variants={fadeInUp} whileHover={{ y: -8, scale: 1.01 }}>
               <div className="card-top-bar">
                 <div className="feature-icon violet">✦</div>
-                <p className="card-kicker">01 / OFFLINE AI</p>
+                <p className="card-kicker">01 / DUAL ENGINE</p>
               </div>
-              <h3>Ask Stash<br />(Offline AI &amp; API)</h3>
-              <p>Search &amp; query your entire clipboard memory locally in natural language. Runs 100% offline — with future support for connecting your custom API key.</p>
+              <h3>Dual Search:<br />Local Mode &amp; AI Mode</h3>
+              <p>Search your clipboard instantly. Toggle <b>Local Mode</b> for exact keyword matches or <b>AI Mode</b> for semantic natural language queries.</p>
               <div className="search-demo">
-                <span>✦</span><span>where is my postgres connection?</span><kbd>LOCAL AI</kbd>
+                <span>✦</span><span>where is my postgres connection?</span><kbd>LOCAL &amp; AI MODE</kbd>
               </div>
               <div className="tags" style={{ marginTop: '14px' }}>
-                <span>100% Offline</span><span>Natural Language</span><span>API Key Ready (Future)</span>
+                <span className="active-tag">⚡ Local Mode</span><span>🧠 AI Mode</span><span>100% Private</span><span>Natural Language</span>
               </div>
             </motion.article>
 
@@ -520,22 +547,22 @@ export default function App() {
                 <p className="card-kicker">02 / MEMORY CONTROL</p>
               </div>
               <h3>Retention &amp;<br />Instant Purge</h3>
-              <p>Customize how long Stash keeps your memory feed — choose between 3 Days, 7 Days, or Forever. Need a fresh slate? Clear memory vault instantly in 1 click.</p>
+              <p>Control memory retention (3 Days, 7 Days, or Forever). Purge your vault anytime in 1 click.</p>
               <div className="tags" style={{ marginTop: '20px' }}>
                 <span>3 Days</span><span>7 Days</span><span>Forever</span><span className="nuke-tag">⚡ 1-Click Clear</span>
               </div>
             </motion.article>
 
-            {/* CARD 3: EXPORT */}
+            {/* CARD 3: SMART EXPORT & AI PDF */}
             <motion.article className="feature-card" variants={fadeInUp} whileHover={{ y: -8, scale: 1.01 }}>
               <div className="card-top-bar">
                 <div className="feature-icon blue">📄</div>
-                <p className="card-kicker">03 / EXPORT &amp; PORTABILITY</p>
+                <p className="card-kicker">03 / SMART EXPORT &amp; AI</p>
               </div>
-              <h3>Instant TXT &amp;<br />PDF Export</h3>
-              <p>Export your collected clipboard items directly into clean, portable text files (.txt). Built-in PDF export support coming for future updates.</p>
+              <h3>Instant TXT &amp;<br />AI PDF Export</h3>
+              <p>Export clipboard history to clean TXT or AI-summarized PDF reports via <b>OpenAI, Gemini, Groq, or Mistral</b>.</p>
               <div className="tags" style={{ marginTop: '20px' }}>
-                <span className="active-tag">.TXT Working</span><span>.PDF (Future)</span><span>Raw Data Export</span>
+                <span className="active-tag">📄 TXT &amp; PDF Active</span><span>🤖 OpenAI / Gemini</span><span>⚡ Groq / Mistral</span>
               </div>
             </motion.article>
           </motion.div>
@@ -555,7 +582,7 @@ export default function App() {
             <div className="workflow-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1.1fr) minmax(300px, 0.9fr)', gap: '40px', alignItems: 'center', position: 'relative', zIndex: 2 }}>
               <motion.div className="workflow-panel" variants={staggerContainer}>
                 <motion.p className="eyebrow" variants={fadeInUp}><span className="pulse" /> Spin the wheel of clipboard sanity</motion.p>
-                <motion.h2 variants={fadeInUp}>Copy. Forget.<br /><em>Recall instantly.</em></motion.h2>
+                <motion.h2 variants={fadeInUp}>Copy. Forget.<br /><em>Recall with Alt + V.</em></motion.h2>
                 <motion.p variants={fadeInUp}>Stash captures your clipboard automatically, understands what it is, and keeps it ready for exactly the right moment.</motion.p>
                 <motion.div className="steps" variants={staggerContainer}>
                   <motion.div variants={fadeInUp} whileHover={{ x: 8 }}>
@@ -564,11 +591,11 @@ export default function App() {
                   </motion.div>
                   <motion.div variants={fadeInUp} whileHover={{ x: 8 }}>
                     <span>02</span>
-                    <p><b>Stash makes sense of it</b><small>AI titles and categorizes it locally.</small></p>
+                    <p><b>Stash makes sense of it</b><small>Local &amp; AI modes title and categorize it locally.</small></p>
                   </motion.div>
                   <motion.div variants={fadeInUp} whileHover={{ x: 8 }}>
                     <span>03</span>
-                    <p><b>Ask for it later</b><small>Natural language brings it right back.</small></p>
+                    <p><b>Press Alt + V to recall</b><small>Instant hotkey brings it right back.</small></p>
                   </motion.div>
                 </motion.div>
               </motion.div>
@@ -580,15 +607,15 @@ export default function App() {
               >
                 <OptionWheel
                   items={[
-                    'Semantic AI Search ✦',
-                    'Auto Clip Titling ⌘',
+                    'Alt + V Hotkey ⚡',
+                    'Local & AI Modes 🧠',
+                    'AI PDF & TXT Export 📄',
+                    'OpenAI · Gemini · Groq · Mistral 🤖',
                     '100% Local Vault ⌂',
                     'Multi-Clip Merge ⊞',
                     'Code & Key Recognition ⚙',
                     'Zero Account Needed 🔒',
-                    'Instant Hotkey Recall ⚡',
-                    'AES-256 Encrypted 🛡',
-                    'Smart Categorization 🏷'
+                    'AES-256 Encrypted 🛡'
                   ]}
                   defaultSelected={1}
                   textColor="#8878a6"
@@ -699,22 +726,54 @@ export default function App() {
             clickPulse={true}
             pulseSpeed={750}
           />
-          <div className="wrap" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-            <motion.p className="eyebrow" variants={fadeInUp} style={{ justifyContent: 'center' }}><span className="pulse" /> Stop suffering, install already</motion.p>
-            <motion.h2 variants={fadeInUp}>Stop losing<br />your best <em>copies.</em></motion.h2>
-            <motion.p variants={fadeInUp}>Free to start. Private forever. Built by Joydeep Das for the people who keep making things.</motion.p>
+          <div className="wrap" style={{ position: 'relative', zIndex: 2, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <motion.p className="eyebrow" variants={fadeInUp} style={{ justifyContent: 'center' }}>
+              <span className="pulse" /> Windows Executable Ready
+            </motion.p>
+            <motion.h2 variants={fadeInUp}>
+              Stop losing<br />your best <em>copies.</em>
+            </motion.h2>
+            <motion.p variants={fadeInUp} style={{ maxWidth: '560px', margin: '0 auto 16px', color: '#bfaedc', fontSize: '15px', lineHeight: '1.6' }}>
+              Summon Stash anywhere with <kbd className="hotkey-pill">Alt + V</kbd>. Runs 100% locally with dual <b>Local Mode</b> &amp; <b>AI Mode</b>. Built by Joydeep Das.
+            </motion.p>
+
+            <motion.div className="download-specs-bar" variants={fadeInUp}>
+              <div className="spec-item">
+                <span className="spec-label">Installer File</span>
+                <span className="spec-val">Stash_Setup_1.0.0.exe</span>
+              </div>
+              <div className="spec-divider" />
+              <div className="spec-item">
+                <span className="spec-label">Global Hotkey</span>
+                <span className="spec-val">Alt + V</span>
+              </div>
+              <div className="spec-divider" />
+              <div className="spec-item">
+                <span className="spec-label">Search Engines</span>
+                <span className="spec-val">Local &amp; AI</span>
+              </div>
+              <div className="spec-divider" />
+              <div className="spec-item">
+                <span className="spec-label">Platform</span>
+                <span className="spec-val">Windows 10 / 11</span>
+              </div>
+            </motion.div>
+
             <motion.a 
               className="button primary large-button" 
-              href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExYW9jeXV4NGtteHBhd29ndmZtYnVic3dldnd3bTUwM3psNWx3ZHh5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vNTIkYpoAUb22FhsVr/giphy.gif"
+              href={DOWNLOAD_LINK}
               target="_blank"
               rel="noopener noreferrer"
               variants={fadeInUp}
               whileHover={{ scale: 1.06, translateY: -4 }}
               whileTap={{ scale: 0.95 }}
             >
-              Get Stash for Windows <span>↓</span>
+              Download Stash v1.0.0 (.exe) <span>↓</span>
             </motion.a>
-            <motion.small variants={fadeInUp}>Windows 10+ · Local-first · No account required</motion.small>
+            
+            <motion.div className="download-meta-info" variants={fadeInUp}>
+              <span>Direct MediaFire Download</span> · <span>100% Offline Vault</span> · <span>No Account Required</span>
+            </motion.div>
           </div>
         </motion.section>
       </main>
@@ -731,11 +790,11 @@ export default function App() {
         <div className="footer-divider wrap" />
 
         <div className="footer-bottom wrap">
-          <p>© 2026 Stash Memory Engine · Crafted by <strong>Joydeep Das</strong></p>
+          <p>© 2026 Stash Memory Engine · Created with love &amp; caffeine by <strong>Joydeep Das</strong></p>
           <div className="footer-links">
             <a href="https://joydeepdas-portfolio.vercel.app/" target="_blank" rel="noreferrer">Portfolio</a>
             <a href="https://www.linkedin.com/in/joydeep-das-78123522a" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://github.com/JoyTheSloth" target="_blank" rel="noreferrer">GitHub</a>
+            <a href={GITHUB_REPO_LINK} target="_blank" rel="noreferrer">GitHub Repo</a>
             <span className="version">v1.0.0 (Windows)</span>
           </div>
         </div>
@@ -743,3 +802,4 @@ export default function App() {
     </div>
   );
 }
+
