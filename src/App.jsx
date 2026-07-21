@@ -15,6 +15,8 @@ import LineSidebar from './LineSidebar.jsx';
 
 const DOWNLOAD_LINK = "https://www.mediafire.com/file/e06u2jw15gqwau6/Stash_Setup_1.0.0.exe/file";
 const GITHUB_REPO_LINK = "https://github.com/JoyTheSloth/Stash-/tree/main";
+const FEEDBACK_FORM_LINK = "https://forms.gle/utZbUg43CFsLMdc8A";
+
 
 const viewModesData = [
   {
@@ -249,6 +251,7 @@ export default function App() {
               <a href="#workflow" onClick={() => setMobileMenuOpen(false)}>Workflow</a>
               <a href="#privacy" onClick={() => setMobileMenuOpen(false)}>Privacy</a>
               <a href={GITHUB_REPO_LINK} target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>GitHub Repository ↗</a>
+              <a href={FEEDBACK_FORM_LINK} target="_blank" rel="noopener noreferrer" style={{ color: '#ffb3c6' }} onClick={() => setMobileMenuOpen(false)}>Have an issue? Share your problem ↗</a>
               <a 
                 href={DOWNLOAD_LINK} 
                 target="_blank" 
@@ -788,6 +791,18 @@ export default function App() {
           <div className="footer-brand-col">
             <Brand />
             <p className="footer-tagline">Your ChatGPT for <em>Ctrl + C.</em></p>
+            <motion.a 
+              href={FEEDBACK_FORM_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-issue-btn"
+              whileHover={{ scale: 1.05, translateY: -2 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              <span className="issue-icon">💬</span>
+              <span>Have an issue? Share your problem</span>
+              <span className="issue-arrow">↗</span>
+            </motion.a>
           </div>
         </div>
 
@@ -796,6 +811,7 @@ export default function App() {
         <div className="footer-bottom wrap">
           <p>© 2026 Stash Memory Engine · Created with love &amp; caffeine by <strong>Joydeep Das</strong></p>
           <div className="footer-links">
+            <a href={FEEDBACK_FORM_LINK} target="_blank" rel="noopener noreferrer" className="footer-issue-link">Share an Issue ↗</a>
             <a href="https://joydeepdas-portfolio.vercel.app/" target="_blank" rel="noreferrer">Portfolio</a>
             <a href="https://www.linkedin.com/in/joydeep-das-78123522a" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href={GITHUB_REPO_LINK} target="_blank" rel="noreferrer">GitHub Repo</a>
